@@ -10,4 +10,13 @@ class ProductsController extends Controller
     {
         return view('products.index');
     }
+
+    public function store(Request $request)
+    {
+        $data = $request->except('_token');
+        $json = json_encode($data);
+        $productsFile = fopen('productsInventory.txt', 'w');
+        fwrite($productsFile, $json);
+        fclose($productsFile);
+    }
 }

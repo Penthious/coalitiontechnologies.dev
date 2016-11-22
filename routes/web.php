@@ -41,3 +41,7 @@ Route::group(['prefix' => 'product'], function (){
         'as'   => 'products_delete',
     ]);
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
